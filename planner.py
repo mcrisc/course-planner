@@ -33,7 +33,8 @@ WEEK_DAYS = ['seg', 'ter', 'qua', 'qui', 'sex', 'sáb', 'dom']
 
 def main():
     d = START_DATE
-    week = 1
+    # week gets 1 if any class occurs in the first week, or 0 otherwise
+    week = 1 if max(DAYS_OF_CLASS.keys()) >= START_DATE.weekday() else 0
     possible_classes = 0
     week_turn = min(DAYS_OF_CLASS.keys())
     while d <= END_DATE and possible_classes < TOTAL_CLASSES:
